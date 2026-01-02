@@ -1,0 +1,124 @@
+:root{
+  --bg1:#ffd1e0;
+  --bg2:#ffeef4;
+  --card:#fff;
+  --accent:#ff6f91;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: radial-gradient(circle at 10% 10%, #fff0 0%, #fff0 0%), linear-gradient(180deg,var(--bg1),var(--bg2));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.card-wrap{position:relative; width:100%; max-width:1100px; padding:40px; display:block}
+.controls{display:flex; gap:12px; justify-content:flex-end; margin-bottom:8px}
+/* hide controls by default for a clean automatic view; remove this rule to show controls */
+.controls{display:none}
+.btn{background:transparent; border:1px solid rgba(107,31,64,0.12); padding:8px 12px; border-radius:10px; cursor:pointer; font-weight:600; color:#6a1b4d}
+.btn:hover{background:rgba(255,255,255,0.6)}
+.btn.small{padding:6px 8px; font-size:13px}
+select#fallType{margin-left:8px; border-radius:8px; padding:4px}
+input[type="range"]{margin-left:8px; vertical-align:middle}
+.card{
+  width:100%; max-width:1500px;
+  margin:0 auto;
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.99));
+  border-radius:28px;
+  box-shadow: 0 18px 40px rgba(43,25,62,0.12);
+  padding:36px 36px 48px 36px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+/* realistic bouquets */
+.bouquet{position:absolute; top:12%; width:160px; height:300px; pointer-events:none; z-index:1; opacity:0.98}
+.bouquet-left{left:-72px; transform:translateY(-4%)}
+.bouquet-right{right:-72px; transform:translateY(-4%)}
+
+@media (max-width:1100px){
+  .bouquet{display:none}
+}
+.header{font-size:34px; font-weight:700; color:#6a1b4d}
+.subtitle{margin-top:6px; color:#9b3a66}
+.avatar-ring{width:300px; height:300px; margin:22px auto; border-radius:50%; display:flex; align-items:center; justify-content:center; background:conic-gradient(from 180deg at 50% 50%, #ffd1e0, #ffb7d0, #ffd1e0); padding:8px; box-shadow:inset 0 6px 18px rgba(255,255,255,0.35)}
+.avatar{width:300px;height:300px;border-radius:50%;display:block; object-fit:cover}
+.avatar-img{width:275px;height:275px;border-radius:50%; display:block; object-fit:cover}
+.note{margin-top:18px;color:#6d2b47}
+.footer{margin-top:8px;color:#b56b86;font-weight:600}
+
+.decor{position:absolute;font-size:30px;opacity:0.95; transform-origin:center; animation:float 6s ease-in-out infinite}
+.d1{left:6%; top:18%}
+.d2{right:8%; top:22%; animation-delay:0.8s}
+.d3{left:10%; bottom:10%; animation-delay:1.6s}
+.d4{right:14%; bottom:8%; font-size:28px; animation-delay:0.4s}
+.d5{left:10%; top:18%}
+.d6{right:10%; top:22%; animation-delay:0.8s}
+.d7{left:15%; bottom:10%; animation-delay:1.6s}
+.d8{right:20%; bottom:8%; font-size:28px; animation-delay:0.4s}
+
+
+
+@keyframes float{
+  0%{transform:translateY(0) rotate(0deg)}
+  50%{transform:translateY(-10px) rotate(6deg)}
+  100%{transform:translateY(0) rotate(0deg)}
+}
+
+/* Falling candies */
+#falling{position:fixed; left:0; top:0; right:0; bottom:0; pointer-events:none; overflow:hidden; z-index:5}
+.candy{
+  position:absolute; top:-10vh; left:0; font-size:26px; opacity:0.95; will-change:transform,opacity;
+  animation-name:fall, sway, spin;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+
+@keyframes fall{
+  0%{transform:translateY(-10vh) translateX(0); opacity:1}
+  90%{opacity:1}
+  100%{transform:translateY(110vh) translateX(30px); opacity:0}
+}
+
+@keyframes sway{
+  0%{transform: translateX(0)}
+  50%{transform: translateX(20px)}
+  100%{transform: translateX(-10px)}
+}
+
+@keyframes spin{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+
+/* different sizes */
+.candy.small{font-size:18px}
+.candy.large{font-size:34px}
+
+/* Click hearts (spawn at pointer position) */
+.click-heart{
+  position:absolute; pointer-events:none; left:0; top:0; transform-origin:center; z-index:70;
+  font-size:22px; opacity:1; will-change:transform,opacity;
+  animation: heartRise 900ms cubic-bezier(.2,.9,.3,1) forwards;
+}
+.click-heart.small{font-size:16px}
+.click-heart.large{font-size:28px}
+
+@keyframes heartRise{
+  0%{transform: translateY(0) scale(0.9) translateX(0); opacity:1}
+  40%{transform: translateY(-36px) scale(1.15) translateX(var(--sx,0px)); opacity:1}
+  100%{transform: translateY(-120px) scale(0.85) translateX(var(--sx,0px)); opacity:0}
+}
+
+
+@media (max-width:1000px){
+  .controls{justify-content:center}
+  .card{padding:24px}
+  .header{font-size:22px}
+  .avatar-ring{width:0px;height:170px}
+  .avatar, .avatar-img{width: 160px;height: 160px}
+}

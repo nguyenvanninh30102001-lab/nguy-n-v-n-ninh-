@@ -22,7 +22,7 @@
         <input id="density" type="range" min="200" max="2000" step="100" value="600">
       </label>
     </div>
-
+    
     <div id="cardRoot" class="card">
       <div class="header">Chúc mừng sinh nhật vo ieuuuuu!!</div>
       <div class="subtitle">Chúc nàng  tuổi 15 ngày càng sinh đẹp ,cuteeee và luôn được yêu thươnggg!!</div>
@@ -35,7 +35,10 @@
       </div>
 
       <div class="note">Mình mong chúng ta sẽ cùng nhau cố gắng và giúp đỡ nhau trong học tập để đỗ nguyện vọng 1  
-         trường THPT Quang Trung và mong rằng chúng ta sẽ mãi mãi ở bên nhau bạn nhé.Háp bi bớt đây yeuu vo ánh của mìnhhhh!!!</div>
+         trường THPT Quang Trung và mong rằng chúng ta sẽ mãi mãi ở bên nhau bạn nhé.Háp bi bớt đây yeuu vo ánh của mìnhhhh!!!
+        And well , I hope that new age you will become more beautiful,kind and cute 
+         studing-hard to pass the finall exam , btw 
+        And I hope we will always be together and love each other .</div>
       <div class="footer">Từ: Ninh-trùm IT =Đ</div>
     </div>
 
@@ -60,6 +63,40 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNa5Yk6gS6T1iYk6q5t8r8o5kq0n6q9j1kF2h3l0G9pV9E0vO1+7z6fQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="script.js"></script>
 
+  <script>
+function createSweet() {
+    const symbols = ['❤️', '❤️', '🍬', '❤️', '❤️', '🧁', '🍰', '🍪'];
+    const sweet = document.createElement('div');
+    
+    // Chọn ngẫu nhiên một biểu tượng từ danh sách
+    sweet.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+    
+    sweet.style.position = 'fixed';
+    sweet.style.left = Math.random() * 100 + "vw";
+    sweet.style.top = "-30px"; // Xuất hiện từ ngoài màn hình
+    sweet.style.fontSize = (Math.random() * 20 + 20) + "px"; // Kích thước ngẫu nhiên
+    sweet.style.opacity = Math.random() * 0.5 + 0.5; // Độ trong suốt
+    sweet.style.pointerEvents = 'none';
+    sweet.style.zIndex = '9999';
+    sweet.style.transition = "transform 6s linear, opacity 6s linear";
+    
+    document.body.appendChild(sweet);
+
+    // Bắt đầu rơi và xoay
+    setTimeout(() => {
+        sweet.style.transform = `translateY(110vh) rotate(${Math.random() * 720}deg)`;
+        sweet.style.opacity = "0";
+    }, 100);
+
+    // Xóa bỏ sau khi rơi xong để không nặng máy
+    setTimeout(() => {
+        sweet.remove();
+    }, 6500);
+}
+
+// Cứ mỗi 400ms (0.4 giây) tạo 1 cái mới
+setInterval(createSweet, 150);
+</script>
 </body>
 </html>
 <!DOCTYPE html>

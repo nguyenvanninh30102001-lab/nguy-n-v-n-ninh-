@@ -122,3 +122,20 @@ input[type="range"]{margin-left:8px; vertical-align:middle}
   .avatar-ring{width:0px;height:170px}
   .avatar, .avatar-img{width: 160px;height: 160px}
 }
+/* Hiệu ứng bồng bềnh cho tấm thiệp */
+.container, .card { 
+    /* Bạn hãy thay '.container' hoặc '.card' bằng cái tên class của tấm thiệp bạn đặt trong code nhé */
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px); /* Nhích lên 15px */
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
